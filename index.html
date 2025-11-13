@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kalkulator Eliminasi Gauss 3×4</title>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; padding: 20px; background:#f6f8fb; color:#111; }
+    h1 { margin-bottom: 6px; }
+    .card { background:white; border-radius:10px; box-shadow: 0 6px 18px rgba(25,30,50,0.06); padding:18px; max-width:820px; margin:auto; }
+    table { border-collapse: collapse; margin: 10px 0; }
+    td, th { padding:6px 8px; border:1px solid #e6e9f0; text-align:center; }
+    input[type=number] { width:96px; padding:6px; border-radius:6px; border:1px solid #cfd6ea; text-align:right; }
+    .actions { display:flex; gap:10px; margin-top:12px; align-items:center; }
+    button { background:#2563eb; color:white; border:none; padding:10px 14px; border-radius:8px; cursor:pointer; }
+    button.secondary { background:#6b7280; }
+    .note { font-size:13px; color:#374151; margin-top:8px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Kalkulator Eliminasi Gauss (3×4)</h1>
+    <p class="note">Masukkan elemen matriks (koefisien a11..a33 dan kolom hasil b1..b3). Gunakan panah ↑/↓ karena input bertipe number.</p>
+
+    <form method="post" action="cgi-bin/gauss.cgi">
+      <table aria-label="Matriks 3x4">
+        <thead>
+          <tr>
+            <th></th><th>a1 (x1)</th><th>a2 (x2)</th><th>a3 (x3)</th><th>b (hasil)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Baris 1</th>
+            <td><input type="number" step="any" name="a11" required value="1"></td>
+            <td><input type="number" step="any" name="a12" required value="2"></td>
+            <td><input type="number" step="any" name="a13" required value="-1"></td>
+            <td><input type="number" step="any" name="b1"  required value="3"></td>
+          </tr>
+          <tr>
+            <th>Baris 2</th>
+            <td><input type="number" step="any" name="a21" required value="2"></td>
+            <td><input type="number" step="any" name="a22" required value="1"></td>
+            <td><input type="number" step="any" name="a23" required value="3"></td>
+            <td><input type="number" step="any" name="b2"  required value="8"></td>
+          </tr>
+          <tr>
+            <th>Baris 3</th>
+            <td><input type="number" step="any" name="a31" required value="1"></td>
+            <td><input type="number" step="any" name="a32" required value="0"></td>
+            <td><input type="number" step="any" name="a33" required value="2"></td>
+            <td><input type="number" step="any" name="b3"  required value="3"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="actions">
+        <button type="submit">Hitung Eliminasi Gauss</button>
+        <button type="button" class="secondary" onclick="location.reload()">Reset</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
